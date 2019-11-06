@@ -14,7 +14,26 @@ go 的数据类型：
   派生类型  -->
     包括：
       (a) 指针类型（Pointer）
+      
+        指针就是一个指针变量指向了一个值的内存地址。
+        Go 语言的取地址符是 &，放到一个变量前使用就会返回相应变量的内存地址。
+        定义指针   var a *int //定义指针
+        package main
+        import "fmt"
+        func main() {
+            var ptr *int //定义指针
+            fmt.Println("变量a的地址是：%x", &ptr)
+            if ptr == nil {
+              fmt.Println("指针ptr是空指针")
+            }
+          }
+        /*当一个指针被定义后没有分配到任何变量时，它的值为 nil。
+        nil 指针也称为空指针。
+        nil在概念上和其它语言的null、None、nil、NULL一样，都指代零值或空值。
+        一个指针变量通常缩写为 ptr。*/
+        
       (b) 数组类型
+        
       (c) 结构化类型(struct)
       (d) Channel 类型
       (e) 函数类型
