@@ -1,0 +1,11 @@
+###MAC 下安装go
+安装：brew install go（安装的是最新版本）
+
+环境变量配置：
+vim ~/.bash_profile
+将/usr/local/go/bin 目录添加至PATH环境变量
+  export PATH=$PATH:/usr/local/go/bin
+执行source ~/.bash_profile  生效
+
+验证：go version 查看版本
+也可以下载安装包 安装 具体教程 ：https://www.runoob.com/go/go-environment.html
