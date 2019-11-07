@@ -37,6 +37,29 @@ go 的数据类型：
           指针ptr是空指针
         
       (b) 数组类型
+        声明数组： var data_arr [5] int
+        package main
+        import "fmt"
+        func main() {
+          var data_arr [5] int
+          var i int
+          //data_arr[0] = 1
+          //data_arr[1] = 2
+          //data_arr[2] = 3
+          //data_arr[3] = 4
+          //data_arr[4] = 5
+          fmt.Println(data_arr)
+          for i = 0; i < 5; i++ {
+            data_arr[i] = i
+            fmt.Printf("data_arr[%d] = %d\n",i,data_arr[i])
+          }
+        }
+        运行结果：[0 0 0 0 0]
+                data_arr[0] = 0
+                data_arr[1] = 1
+                data_arr[2] = 2
+                data_arr[3] = 3
+                data_arr[4] = 4
         
       (c) 结构化类型(struct)
       (d) Channel 类型
