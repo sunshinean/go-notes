@@ -14,5 +14,15 @@
     // 创建一个整型切片
     // 其长度和容量都是8个元素
     slice := make([]int, 8)
-    fmt.Println(len(slice), cap(slice))
+    fmt.Printf("slice的长度是%d,容量是%d\n", len(slice), cap(slice))
+
+    // 创建一个整型切片
+    // 其长度为5个元素，容量为8个元素
+    slice2 := make([]int, 5, 8)
+    fmt.Printf("slice2的长度是%d,容量是%d", len(slice2), cap(slice2))
   }
+  运行结果：
+    slice的长度是8,容量是8
+    slice2的长度是5,容量是8
+
+定义切片的时候，go不允许容量比长度小，否则会报错#####
