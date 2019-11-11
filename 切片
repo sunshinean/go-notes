@@ -1,4 +1,5 @@
-切片：
+参考 https://www.jianshu.com/p/354fce23b4f0
+####切片：
   go 的切片是比数组更灵活的数据结构，可以按照需要，增长或者缩小。
   
   切片拥有长度和容量
@@ -25,4 +26,65 @@
     slice的长度是8,容量是8
     slice2的长度是5,容量是8
 
-定义切片的时候，go不允许容量比长度小，否则会报错#####
+####定义切片的时候，go不允许容量比长度小，否则会报错#####
+
+####通过切片创建新的切片
+  切片之所以被称为切片，是因为创建一个新的切片，也就是把底层数组切出一部分。通过切片创建新切片的语法如下：
+  slice[i:j]
+  slice[i:j:k]
+  *其中 i 表示从 slice 的第几个元素开始切，
+  *j 控制切片的长度(j-i)，
+  *k 控制切片的容量(k-i)，如果没有给定 k，则表示切到底层数组的最尾部。
+  
+  slice[i:]  // 从 i 切到最尾部
+  slice[:j]  // 从最开头切到 j(不包含 j)
+  slice[:]   // 从头切到尾，等价于复制整个 slice
+  
+  ####
+  package main
+
+  import "fmt"
+
+  func main() {
+    // 创建一个整型切片
+    // 其长度和容量都是8个元素
+    slice := make([]int, 8)
+    fmt.Printf("slice的长度是%d,容量是%d\n", len(slice), cap(slice))
+    // 创建一个新切片
+    // 其长度为2个元素，容量为7个元素
+    newNum := slice[1:3]
+    fmt.Println(len(newNum),cap(newNum))
+  }
+  
+ ##append() 和 copy() 函数
+    *append() 函数可以向 slice 尾部添加数据，可以自动为切片扩容。常常会返回新的 slice 对象。
+    //append函数会智能的将底层数组的容量增长，一旦超过原底层数组容量，通常以2倍（1024以下）容量重新分配底层数组，并复制原来的数据。
+    //因此，使用append 给切片做扩充时，切片的地址可能发生变化。但，数据都被重新保存了，不影响使用。
+    newSlice :=append(newNum, 2)
+	  fmt.Println(newSlice)
+    
+    *copy() 函数可以将一个切片中的元素拷贝到另一个切片中
+    package main
+
+    import "fmt"
+
+    func main() {
+      num1 := []int{10, 20, 30}
+      num2 := make([]int, 5)
+      count := copy(num2, num1)
+      fmt.Println(count)
+      fmt.Println(num2)
+      for index, value := range num2{
+        fmt.Printf("第%d个元素的值是%d\n", index, value)
+      }
+    }
+    运行结果：
+      3 //3 表示拷贝成功的元素个数。
+      [10 20 30 0 0]
+      第0个元素的值是10
+      第1个元素的值是20
+      第2个元素的值是30
+      第3个元素的值是0
+      第4个元素的值是0
+
+    
