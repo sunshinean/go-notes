@@ -1,7 +1,7 @@
 # go-notes
-go
+go  是一种静态型、编译型并自带垃圾回收和并发的编程语言
 
-http://c.biancheng.net/view/3990.html
+
 
 # 并发模型
 Goroutine 是 Go 最显著的特征。它用类协程的方式来处理并发单元，却又在运行时层面做了更深度的优化处理。这使得语法上的并发编程变得极为容易，无须处理回调，无须关注线程切换，仅一个关键字，简单而自然。
@@ -42,3 +42,5 @@ STW（挂起程序）
 重复3，直到灰色对象队列为空，此时白色对象即为垃圾，进行回收
 
 参考 https://www.jianshu.com/p/b434dfbec6d8
+    http://c.biancheng.net/view/3990.html
+
