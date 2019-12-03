@@ -1,10 +1,12 @@
-Go 并发
+#Go 并发  
+```
   Go 语言支持并发，我们只需要通过 go 关键字来开启 goroutine 即可。
   goroutine是Go并行设计的核心。goroutine说到底其实就是协程，但是它比线程更小，
   十几个goroutine可能体现在底层就是五六个线程，Go语言内部帮你实现了这些goroutine之间的内存共享。
   执行goroutine只需极少的栈内存(大概是4~5KB)，当然会根据相应的数据伸缩。
   也正因为如此，可同时运行成千上万个并发任务。goroutine 是轻量级线程，goroutine 的调度是由 Golang 运行时进行管理的。
-
+```
+```
   package main
 
   import (
@@ -23,6 +25,7 @@ Go 并发
     go say("haha")
     say("lalalal")
   }
+```
   
   运行结果：
     haha
@@ -36,18 +39,21 @@ Go 并发
     haha
     lalalal
 
-通道（channel）
+# 通道（channel）  
+```
   通道（channel）是用来传递数据的一个数据结构。
   通道可用于两个 goroutine 之间通过传递一个指定类型的值来同步运行和通讯。
   操作符 <- 用于指定通道的方向，发送或接收。如果未指定方向，则为双向通道。
-
-channel类型：无缓冲和缓冲类型
+```
+### channel类型：无缓冲和缓冲类型  
+```
   channel有两种形式的，一种是无缓冲的，一个线程向这个channel发送了消息后，
   会阻塞当前的这个线程，知道其他线程去接收这个channel的消息。
   
   带缓冲的channel，是可以指定缓冲的消息数量，当消息数量小于指定值时，
   不会出现阻塞，超过之后才会阻塞，需要等待其他线程去接收channel处理
-  
+```
+```
   package main
 
   import "fmt"
@@ -68,6 +74,7 @@ channel类型：无缓冲和缓冲类型
     val := <- ch
     fmt.Println(val)
   }
+```
   
   运行结果：
     0xc000096000
