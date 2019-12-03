@@ -1,7 +1,8 @@
-接口：
-Go语言作为一种静态语言，对Duck Typing的支持通过Structural Typing实现。
-Structural Typing是Go语言式的接口，
-就是不用显示声明类型T实现了接口I，只要类型T的公开方法完全满足接口I的要求，就可以把类型T的对象用在需要接口I的地方。
+# 接口：  
+Go语言作为一种静态语言，对Duck Typing的支持通过Structural Typing实现。  
+Structural Typing是Go语言式的接口，  
+就是不用显示声明类型T实现了接口I，只要类型T的公开方法完全满足接口I的要求，就可以把类型T的对象用在需要接口I的地方。  
+```
 package main
 
 import "fmt"
@@ -29,50 +30,52 @@ func main() {
 	animal = new(Cat)
 	animal.say()
 }
+```
 
 运行结果：
   旺旺旺
   喵喵喵
 
+```
+package main
 
-	package main
+import (
+	"fmt"
+)
 
-	import (
-		"fmt"
-	)
+//定义接口方法
+type Animal interface{
+	say() string
+}
+type Dog struct {
+	name string
+	age int
+}
+//实现接口方法
+func (dog Dog) say() string{
+	return dog.name
+}
+//实现接口方法
+type Cat struct {
+	name string
+	age int
+}
+func (cat Cat) say() string{
+	return cat.name
+}
 
-	//定义接口方法
-	type Animal interface{
-		say() string
-	}
-	type Dog struct {
-		name string
-		age int
-	}
-	//实现接口方法
-	func (dog Dog) say() string{
-		return dog.name
-	}
-	//实现接口方法
-	type Cat struct {
-		name string
-		age int
-	}
-	func (cat Cat) say() string{
-		return cat.name
-	}
+func main() {
+	c := Cat{name:"zhao_cai_mao"}
+	var animal Animal
+	animal = c
+	name := animal.say()
+	fmt.Println(name)
 
-	func main() {
-		c := Cat{name:"zhao_cai_mao"}
-		var animal Animal
-		animal = c
-		name := animal.say()
-		fmt.Println(name)
-
-		d := Dog{name:"wang_cai"}
-		var dd Animal
-		dd = d
-		dog_name :=dd.say()
-		fmt.Println(dog_name)
-	}
+	d := Dog{name:"wang_cai"}
+	var dd Animal
+	dd = d
+	dog_name :=dd.say()
+	fmt.Println(dog_name)
+}
+```
 	
