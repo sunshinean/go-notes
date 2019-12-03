@@ -1,6 +1,9 @@
+# iota枚举
+```
 Go里面有一个关键字iota，这个关键字用来声明enum的时候采用，
 它默认开始值是0，const中每增加一行加1：
-
+```
+```
 package main
 
 import "fmt"
@@ -22,7 +25,8 @@ const (
 func main()  {
 	fmt.Println(x, y, z, w, a, b, c, d, e, f, g, i, k, j)
 }
+```
 
-运行结果：
+####### 运行结果：
     0 1 2 0 0 0 0 0 B 2 3 3 3 4
 
