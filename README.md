@@ -42,5 +42,6 @@ STW（挂起程序）
 重复3，直到灰色对象队列为空，此时白色对象即为垃圾，进行回收
 
 参考 https://www.jianshu.com/p/b434dfbec6d8
+
     http://c.biancheng.net/view/3990.html
 
