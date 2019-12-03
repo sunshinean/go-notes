@@ -1,6 +1,7 @@
 第一个go 程序
 
 
+```
 package main
 
 import "fmt"
@@ -8,6 +9,7 @@ import "fmt"
 func main() {
 	fmt.Println("hello, word")
 }
+```
 
 
 运行：go run test.go
